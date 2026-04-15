@@ -8,8 +8,12 @@ git이란?
    * 팀원들이 이메일이나 알림에서 **'Accept Invitation'**을 눌러야 비로소 권한이 생김
   
     
-1. clone 먼저!
+2. git clone
+   * 각자 폴더에서 git clone https://github.com/zoecodes-dev/git-practice.git
+   
+3. branch 생성
 
+   
 branch !는?
 
 

@@ -20,3 +20,5 @@ branch !는?
 pr 은 pull- request!
 
 merch는 병합
+
+공격이다

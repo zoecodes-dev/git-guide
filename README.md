@@ -21,7 +21,12 @@ pr 은 pull- request!
 
 merch는 병합
 
+<<<<<<< HEAD
 공격이다
 메롱 나도 공격이다
 
 뚫을 수 있을 것인가
+=======
+
+은진님 굿모닝~~ selamat siang
+>>>>>>> dc4391323b45603f756b6fd5cb6a7771a65d3b8e

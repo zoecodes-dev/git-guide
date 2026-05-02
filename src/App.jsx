@@ -223,8 +223,75 @@ const sections = [
         code: `# 환경변수 (API 키 절대 금지!)\n.env\n.env.local\n.env.*.local\n\n# Python\n__pycache__/\n*.py[cod]\n*.egg-info/\nvenv/\n.venv/\ndist/\n\n# IDE\n.vscode/settings.json\n.idea/\n*.swp\n\n# 모델/데이터 (용량 큰 것)\n*.pkl\n*.h5\ndata/raw/\nchroma_db/\n\n# OS\n.DS_Store\nThumbs.db` },
     ],
   },
-  {
+{
     id: "divider-1",
+    type: "divider",
+    label: "긴급 탈출 넘버원",
+  },
+  {
+    id: "emergency",
+    emoji: "🩹",
+    title: "커밋 복구 (Reflog)",
+    subtitle: "삭제하거나 덮어썼을 때",
+    color: "#EF4444",
+    content: [
+      {
+        type: "concept",
+        title: "Reflog = Git의 블랙박스",
+        body: "git log에는 안 보여도 git reflog에는 내가 움직인 모든 발자취가 남습니다.\nforce push로 원격을 덮어썼더라도 로컬에 기록이 있다면 되돌릴 수 있어요.",
+      },
+      {
+        type: "commands",
+        title: "복구 명령어",
+        commands: [
+          { cmd: "git reflog", desc: "모든 헤드 이동 기록 확인 (해시값 찾기)" },
+          { cmd: "git reset --hard [HASH]", desc: "실수하기 직전 시점으로 강제 이동" },
+          { cmd: "git reflog origin/main", desc: "원격 브랜치의 변경 이력만 따로 확인" },
+        ],
+      },
+      {
+        type: "tip",
+        title: "💡 복구 골든타임",
+        items: [
+          { label: "로컬 기록", desc: "내 컴퓨터에서 일어난 일은 웬만하면 reflog에 남음" },
+          { label: "주의", desc: "단, 아예 commit 하지 않은 파일은 복구가 어려움" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "ignore-fix",
+    emoji: "🧹",
+    title: "캐시 삭제",
+    subtitle: ".gitignore가 작동 안 할 때",
+    color: "#6366F1",
+    content: [
+      {
+        type: "concept",
+        title: "왜 무시가 안 될까?",
+        body: ".gitignore는 '추적되지 않은(untracked)' 파일에만 적용됩니다.\n이미 Git이 관리 중인 파일은 목록에 적어도 계속 추적됩니다.",
+      },
+      {
+        type: "flow",
+        title: "강제 무시 적용 루틴",
+        steps: [
+          { step: "1", action: "git rm -r --cached .", desc: "모든 파일의 추적(캐시)을 중단 (파일 삭제 아님!)", icon: "🧼" },
+          { step: "2", action: "git add .", desc: ".gitignore 규칙이 적용된 상태로 다시 추가", icon: "📋" },
+          { step: "3", action: 'git commit -m "fix: apply ignore"', desc: "추적 중단된 상태를 기록", icon: "📸" },
+        ],
+      },
+      {
+        type: "tip",
+        title: "💡 특정 폴더만 타겟팅",
+        items: [
+          { label: "명령어", desc: "git rm -r --cached [폴더경로]" },
+          { label: "예시", desc: "git rm -r --cached snapshots/ (snapshots 폴더만 추적 중단)" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "divider-2",
     type: "divider",
     label: "실전 상황",
   },

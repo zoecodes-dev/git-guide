@@ -25,6 +25,32 @@ const sections = [
   }],
   },
   {
+    id: "basic", emoji: "📸", title: "기본 워크플로우", subtitle: "매일 쓰는 루틴", color: "#2563EB",
+    content: [
+      { type: "flow", title: "☀️ 작업 시작 루틴 (원래 있던 폴더에서)", steps: [
+        { step: "1", action: "git switch main", desc: "먼저 기준이 되는 main(또는 dev) 브랜치로 이동", icon: "🏠" },
+        { step: "2", action: "git pull", desc: "밤사이 팀원들이 업데이트한 최신 코드 내려받기", icon: "⬇️" },
+        { step: "3", action: "git switch -c feature/오늘할일", desc: "최신 상태에서 오늘 작업할 새 브랜치 생성", icon: "🌿" },
+      ]},
+      { type: "flow", title: "🌙 작업 완료/퇴근 루틴", steps: [
+        { step: "1", action: "git status", desc: "내가 수정한 파일들 확인 (항상 먼저!)", icon: "🔍" },
+        { step: "2", action: 'git add .', desc: "수정한 파일들을 스테이징 (장바구니 담기)", icon: "📋" },
+        { step: "3", action: 'git commit -m "msg"', desc: "어떤 작업을 했는지 메시지와 함께 저장", icon: "📸" },
+        { step: "4", action: "git push", desc: "깃허브(원격)에 업로드 (안전하게 퇴근!)", icon: "⬆️" },
+      ]},
+      { type: "commands", title: "add & commit 상세 명령어", commands: [
+        { cmd: "git add .", desc: "모든 변경사항 스테이징" },
+        { cmd: "git add file.py", desc: "특정 파일만 스테이징" },
+        { cmd: 'git commit -m "feat: add login API"', desc: "메시지와 함께 커밋" },
+        { cmd: 'git commit -am "fix: typo"', desc: "add + commit 한 번에 (새로 만든 파일이 없을 때만 가능)" },
+        { cmd: "git commit --amend", desc: "방금 한 마지막 커밋 수정 (push 하기 전에만!)" },
+      ]},
+      { type: "tip", title: "💡 이미 작업 중이던 내 브랜치가 있다면?", items: [
+        { label: "방법", desc: "1. git switch 내브랜치 → 2. git pull origin main (main의 최신 내용을 내 브랜치로 당겨오기) → 3. 작업 계속하기" },
+      ]},
+    ],
+  },
+  {
     id: "setup", emoji: "⚙️", title: "초기 설정", subtitle: "처음 한 번만", color: "#059669",
     content: [
       { type: "commands", title: "글로벌 설정 (처음 한 번만)", commands: [
@@ -56,27 +82,6 @@ const sections = [
         { label: "M  file.py", desc: "Modified (staged) — 스테이징 완료" },
         { label: " M file.py", desc: "Modified (unstaged) — 수정됐지만 아직 add 안 함" },
         { label: "A  file.py", desc: "Added — 새로 추가된 파일이 staged" },
-      ]},
-    ],
-  },
-  {
-    id: "basic", emoji: "📸", title: "기본 워크플로우", subtitle: "매일 쓰는 루틴", color: "#2563EB",
-    content: [
-      { type: "flow", title: "하루의 Git 루틴", steps: [
-        { step: "1", action: "git pull", desc: "작업 시작 전 최신 코드 받기", icon: "⬇️" },
-        { step: "2", action: "코드 수정", desc: "파일 편집", icon: "✏️" },
-        { step: "3", action: "git status", desc: "뭐가 바뀌었는지 확인", icon: "🔍" },
-        { step: "4", action: 'git add .', desc: "변경사항 스테이징", icon: "📋" },
-        { step: "5", action: 'git commit -m "msg"', desc: "스냅샷 저장", icon: "📸" },
-        { step: "6", action: "git push", desc: "원격에 업로드", icon: "⬆️" },
-      ]},
-      { type: "commands", title: "add & commit 상세", commands: [
-        { cmd: "git add .", desc: "모든 변경사항 스테이징" },
-        { cmd: "git add file.py", desc: "특정 파일만 스테이징" },
-        { cmd: "git add src/", desc: "특정 폴더만 스테이징" },
-        { cmd: 'git commit -m "feat: add login API"', desc: "메시지와 함께 커밋" },
-        { cmd: 'git commit -am "fix: typo"', desc: "add + commit 한 번에 (새 파일 제외)" },
-        { cmd: "git commit --amend", desc: "마지막 커밋 수정 (push 전에만!)" },
       ]},
     ],
   },

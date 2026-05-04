@@ -382,6 +382,39 @@ const sections = [
         ],
       },
       {
+        id: "time-travel",
+        emoji: "🕰️",
+        title: "과거 버전 확인",
+        subtitle: "이미 머지된 예전 코드로 돌아가기",
+        color: "#8B5CF6",
+        content: [
+          {
+            type: "concept",
+            title: "상황 (Time Travel)",
+            body: "이미 main에 머지까지 다 끝났는데, '예전 버전 코드는 어떻게 작동했지?' 하고 과거 시점의 코드를 내 컴퓨터에서 실행해보고 싶을 때 사용합니다.\n(이를 Detached HEAD 상태라고 부릅니다.)",
+          },
+          {
+            type: "flow",
+            title: "과거 코드로 돌아가서 확인하는 순서",
+            steps: [
+              { step: "1", action: "git log --oneline", desc: "히스토리를 보고 돌아가고 싶은 과거 커밋의 해시값(앞 7자리, 예: a1b2c3d) 복사", icon: "🔍" },
+              { step: "2", action: "git switch --detach [HASH]", desc: "과거 시점으로 타임머신 이동! 폴더 안의 파일들이 그 시절 코드로 싹 바뀜", icon: "⏪" },
+              { step: "3", action: "npm install", desc: "과거 시점의 의존성(패키지)이 지금과 다를 수 있으니 재설치", icon: "📦" },
+              { step: "4", action: "npm run dev", desc: "로컬 서버 띄워서 예전 코드 구경하고 테스트하기", icon: "🖥️" },
+              { step: "5", action: "git switch main", desc: "구경 다 했으면 다시 현재(main)로 무사히 귀환", icon: "🏠" },
+            ],
+          },
+          {
+            type: "tip",
+            title: "⚠️ 여기서 주의할 점",
+            items: [
+              { label: "눈으로만 보세요", desc: "과거로 돌아간 상태(--detach)에서는 코드를 수정하고 commit 해도 저장할 브랜치가 없어서 날아갈 위험이 큽니다." },
+              { label: "과거에서 새로 시작하려면", desc: "과거 코드에서 구경만 하는 게 아니라 아예 가지를 쳐서 새로 작업하고 싶다면, git switch -c [새브랜치명] [HASH] 로 과거 시점에서 새 브랜치를 파면 됩니다." },
+            ],
+          },
+        ],
+      },
+      {
         type: "flow",
         title: "해결 순서",
         steps: [
